@@ -24,7 +24,7 @@ struct logo {
 extern struct logo logos[];
 
 struct uptime {
-	long d, h, m;
+    long d, h, m;
 };
 
 struct mem {

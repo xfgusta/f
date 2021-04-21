@@ -102,7 +102,7 @@ char *getosname() {
         file = fopen("/lib/os-release", "r");
         if(!file)
             die("fopen");
-	}
+    }
 
     if(fseek(file, 0, SEEK_END) == -1)
         die("fseek");
@@ -117,7 +117,7 @@ char *getosname() {
     if(!data)
         die("malloc");
 
-	fread(data, size, 1, file);
+    fread(data, size, 1, file);
     data[size] = 0;
     fclose(file);
 
@@ -180,22 +180,22 @@ int getpkgcount(int distro) {
 }
 
 char *getkernelver() {
-	struct utsname name;
-	if(uname(&name) == -1)
-		die("uname");
-	char *ver = malloc(strlen(name.release) + 1);
-	if(!ver)
-		die("malloc");
-	strcpy(ver, name.release);
-	return ver;
+    struct utsname name;
+    if(uname(&name) == -1)
+        die("uname");
+    char *ver = malloc(strlen(name.release) + 1);
+    if(!ver)
+        die("malloc");
+    strcpy(ver, name.release);
+    return ver;
 }
 
 struct uptime getuptime() {
-	struct sysinfo info;
-	if(sysinfo(&info) == -1)
-		die("sysinfo");
-	long sec = info.uptime;
-	return (struct uptime) {sec / 86400, sec / 3600 % 24, sec / 60 % 60};
+    struct sysinfo info;
+    if(sysinfo(&info) == -1)
+        die("sysinfo");
+    long sec = info.uptime;
+    return (struct uptime) {sec / 86400, sec / 3600 % 24, sec / 60 % 60};
 }
 
 struct mem getmeminfo() {
