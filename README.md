@@ -2,7 +2,16 @@
 
 Fast and simple system info (for Linux) written in POSIX compliant C99.
 
-## Build
+## Installation
+
+### Fedora
+
+```
+# dnf copr enable xfgusta/f
+# dnf install f
+```
+
+### Build from source
 
 Dependencies:
 
@@ -12,18 +21,7 @@ Dependencies:
 
 ```
 $ make
-```
-
-## Install
-
-```
 # make install
-```
-
-## Uninstall
-
-```
-# make uninstall
 ```
 
 ## Screenshot
