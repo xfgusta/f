@@ -92,7 +92,7 @@ static char *pkgcmd[] = {
     [LINUXMINT] = "dpkg-query -W | wc -l",
     [DEBIAN] = "dpkg-query -W | wc -l",
     [POPOS] = "dpkg-query -W | wc -l",
-    [OPENSUSE] = "rpm -qa | wc-l",
+    [OPENSUSE] = "rpm -qa | wc -l",
     [UNKNOWN] = "echo -1"
 };
 
