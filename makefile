@@ -5,7 +5,7 @@ LDFLAGS = -lprocps
 SRC = main.c info.c
 
 ${PROG}: ${SRC}
-	${CC} ${CFLAGS} ${LDFLAGS} ${SRC} -o ${PROG}
+	${CC} ${CFLAGS} ${SRC} ${LDFLAGS} -o ${PROG}
 
 install:
 	mkdir -p $(DESTDIR)/usr/bin
