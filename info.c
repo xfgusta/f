@@ -88,10 +88,10 @@ static char *pkgcmd[] = {
     [ARCHLINUX] = "pacman -Qq | wc -l",
     [FEDORA] = "rpm -qa | wc -l",
     [MANJARO] = "pacman -Qq | wc -l",
-    [UBUNTU] = "dpkg -l | wc -l",
-    [LINUXMINT] = "dpkg -l | wc -l",
-    [DEBIAN] = "dpkg -l | wc -l",
-    [POPOS] = "dpkg -l | wc -l",
+    [UBUNTU] = "dpkg-query -W | wc -l",
+    [LINUXMINT] = "dpkg-query -W | wc -l",
+    [DEBIAN] = "dpkg-query -W | wc -l",
+    [POPOS] = "dpkg-query -W | wc -l",
     [OPENSUSE] = "rpm -qa | wc-l",
     [UNKNOWN] = "echo -1"
 };
