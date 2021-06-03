@@ -163,7 +163,7 @@ int getdistro(char *os) {
         return DEBIAN;
     else if(eq("Pop!_OS"))
         return POPOS;
-    else if(eq("openSUSE"))
+    else if(eq("openSUSE") || eq("openSUSE Tumbleweed") || eq("openSUSE Leap"))
         return OPENSUSE;
     else
         return UNKNOWN;
