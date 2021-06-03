@@ -151,7 +151,7 @@ char *getosname() {
 int getdistro(char *os) {
     if(eq("Arch Linux"))
         return ARCHLINUX;
-    else if(eq("Fedora"))
+    else if(eq("Fedora") || eq("Fedora Linux"))
         return FEDORA;
     else if(eq("Manjaro Linux"))
         return MANJARO;
