@@ -39,7 +39,7 @@ int main() {
         printf("%s", line);
 
         int len = length(line);
-        for(int n = 5 + max - len; n > 0; n--)
+        for(int n = 4 + max - len; n > 0; n--)
             putchar(' ');
 
         switch(row) {
