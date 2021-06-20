@@ -16,9 +16,10 @@ int main() {
     }
 
     int distro = getdistro(os);
+    char *username = getuser();
+    char *hostname = gethost();
     int pkgs = getpkgcount(distro);
     char *ver = getkernelver();
-
     struct uptime up = getuptime();
     struct memory mem = getmeminfo();
 
@@ -38,19 +39,25 @@ int main() {
         printf("%s", line);
 
         int len = length(line);
-        for(int n = 4 + max - len; n > 0; n--)
+        for(int n = 5 + max - len; n > 0; n--)
             putchar(' ');
 
         switch(row) {
             case 0:
+                printf("\033[1;33m%s\033[0m@\033[1;33m%s\033[0m", username,
+                       hostname);
+                free(username);
+                free(hostname);
+                break;
+            case 1:
                 printf("\033[1;%dmos\033[0m      %s", color, os);
                 free(os);
                 break;
-            case 1:
+            case 2:
                 printf("\033[1;%dmkernel\033[0m  %s", color, ver);
                 free(ver);
                 break;
-            case 2:
+            case 3:
                 printf("\033[1;%dmup\033[0m      ", color);
                 if(up.d)
                     printf("%ldd ", up.d);
@@ -59,14 +66,15 @@ int main() {
                 if(up.m)
                     printf("%ldm", up.m);
                 break;
-            case 3:
+            case 4:
                 if(pkgs != -1)
                     printf("\033[1;%dmpkgs\033[0m    %d", color, pkgs);
                 else
                     printf("\033[1;%dmpkgs\033[0m    unknown", color);
                 break;
-            case 4:
-                printf("\033[1;%dmmemory\033[0m  %luM / %luM", color, mem.used, mem.total);
+            case 5:
+                printf("\033[1;%dmmemory\033[0m  %luM / %luM", color,
+                       mem.used, mem.total);
                 break;
         }
         putchar('\n');

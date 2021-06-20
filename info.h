@@ -33,6 +33,8 @@ struct memory {
 
 char *getosname();
 int getdistro(char *);
+char *getuser();
+char *gethost();
 int getpkgcount(int);
 char *getkernelver();
 struct uptime getuptime();

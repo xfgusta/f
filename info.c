@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <limits.h>
 
 #include <sys/sysinfo.h>
 #include <sys/utsname.h>
@@ -166,6 +167,27 @@ int getdistro(char *os) {
         return OPENSUSE;
     else
         return UNKNOWN;
+}
+
+char *getuser() {
+    char *user = getlogin();
+    if(!user)
+        die("getlogin");
+    char *username = malloc(strlen(user) + 1);
+    if(!username)
+        die("malloc");
+    strcpy(username, user);
+    return username;
+}
+
+char *gethost() {
+    char *hostname = malloc(HOST_NAME_MAX + 1);
+    if(!hostname)
+        die("malloc");
+    gethostname(hostname, HOST_NAME_MAX + 1);
+    if(!hostname)
+        die("gethostname");
+    return hostname;
 }
 
 int getpkgcount(int distro) {
