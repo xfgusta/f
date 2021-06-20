@@ -23,7 +23,7 @@ To uninstall, run `make uninstall` as root as well.
 
 ## Screenshot
 
-![](img/img-01.png)
+![](img/f.png)
 
 ## Supported distros
 
