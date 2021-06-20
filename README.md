@@ -4,17 +4,22 @@ Fast and simple system info (for Linux) written in POSIX compliant C99.
 
 ## Installation
 
-### Build from source
-
-Dependencies:
+#### Requirements
 
 + make
 + gcc (and a POSIX environment)
 
+Build and install with:
+
 ```
-$ make
-# make install
+git clone https://github.com/xfgusta/f.git
+cd f
+make
 ```
+
+And then `make install` as root.
+
+To uninstall, run `make uninstall` as root as well.
 
 ## Screenshot
 
@@ -35,4 +40,4 @@ $ make
 
 The MIT License (MIT)
 
-f Copyright (c) 2021 Gustavo Costa
+Copyright (c) 2021 Gustavo Costa
