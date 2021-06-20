@@ -134,7 +134,7 @@ char *getosname() {
 
             name = malloc(len + 1);
             if(!name)
-                die("malloc");
+                break;
 
             strncpy(name, start, len);
             name[len] = 0;
