@@ -6,7 +6,6 @@
 
 #include <sys/sysinfo.h>
 #include <sys/utsname.h>
-#include <proc/sysinfo.h>
 
 #include "info.h"
 
@@ -198,7 +197,26 @@ struct uptime getuptime() {
     return (struct uptime) {sec / 86400, sec / 3600 % 24, sec / 60 % 60};
 }
 
-struct mem getmeminfo() {
-    meminfo();
-    return (struct mem) {kb_main_used / 1024, kb_main_total / 1024};
+struct memory getmeminfo() {
+    FILE *meminfo = fopen("/proc/meminfo", "r");
+    if(!meminfo)
+        die("fopen");
+
+    char line[256];
+    unsigned long memtotal, memfree, buffers, cached, sreclaimable;
+    while(fgets(line, sizeof(line), meminfo)) {
+        sscanf(line, "MemTotal: %lu kB", &memtotal);
+        sscanf(line, "MemFree: %lu kB", &memfree);
+        sscanf(line, "Buffers: %lu kB", &buffers);
+        sscanf(line, "Cached: %lu kB", &cached);
+        sscanf(line, "SReclaimable: %lu kB", &sreclaimable);
+    }
+
+    fclose(meminfo);
+
+    unsigned long total = memtotal;
+    cached += sreclaimable;
+    unsigned long used = total - memfree - buffers - cached;
+
+    return (struct memory) {used / 1024, total / 1024};
 }

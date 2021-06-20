@@ -1,11 +1,10 @@
 PROG = f 
 CC = gcc
 CFLAGS = -Wall -Wextra -pedantic -std=c99
-LDFLAGS = -lprocps
 SRC = main.c info.c
 
 ${PROG}: ${SRC}
-	${CC} ${CFLAGS} ${SRC} ${LDFLAGS} -o ${PROG}
+	${CC} ${CFLAGS} ${SRC} -o ${PROG}
 
 install:
 	mkdir -p $(DESTDIR)/usr/bin

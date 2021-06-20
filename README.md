@@ -17,7 +17,6 @@ Dependencies:
 
 + make
 + gcc (and a POSIX environment)
-+ procps
 
 ```
 $ make

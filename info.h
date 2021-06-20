@@ -27,7 +27,7 @@ struct uptime {
     long d, h, m;
 };
 
-struct mem {
+struct memory {
     unsigned long used, total; 
 };
 
@@ -36,6 +36,6 @@ int getdistro(char *);
 int getpkgcount(int);
 char *getkernelver();
 struct uptime getuptime();
-struct mem getmeminfo();
+struct memory getmeminfo();
 
 #endif

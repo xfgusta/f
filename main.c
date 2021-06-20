@@ -18,8 +18,9 @@ int main() {
     int distro = getdistro(os);
     int pkgs = getpkgcount(distro);
     char *ver = getkernelver();
+
     struct uptime up = getuptime();
-    struct mem ram = getmeminfo();
+    struct memory mem = getmeminfo();
 
     struct logo logo = logos[distro];
     int color = logo.color;
@@ -65,7 +66,7 @@ int main() {
                     printf("\033[1;%dmpkgs\033[0m    unknown", color);
                 break;
             case 4:
-                printf("\033[1;%dmmemory\033[0m  %luM / %luM", color, ram.used, ram.total);
+                printf("\033[1;%dmmemory\033[0m  %luM / %luM", color, mem.used, mem.total);
                 break;
         }
         putchar('\n');
