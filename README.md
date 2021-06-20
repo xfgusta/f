@@ -4,13 +4,6 @@ Fast and simple system info (for Linux) written in POSIX compliant C99.
 
 ## Installation
 
-### Fedora
-
-```
-# dnf copr enable xfgusta/f
-# dnf install f
-```
-
 ### Build from source
 
 Dependencies:
