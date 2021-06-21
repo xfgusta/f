@@ -73,7 +73,7 @@ int main() {
                     printf("\033[1;%dmpkgs\033[0m    unknown", color);
                 break;
             case 5:
-                printf("\033[1;%dmmemory\033[0m  %luM / %luM", color,
+                printf("\033[1;%dmmemory\033[0m  %luMiB / %luMiB", color,
                        mem.used, mem.total);
                 break;
         }
